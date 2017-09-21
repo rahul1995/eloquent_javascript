@@ -11,10 +11,10 @@ ancestry.forEach(function(person) {
 });
 
 // Your code here.
-console.log(average(ancestry.reduce(function(arr, person) {
-  if(byName[person.mother])
-    return arr.concat(person.born - byName[person.mother].born);
-  return arr;
-}, [])));
+console.log(average(ancestry.filter(function(person) {
+  return byName[person.mother];
+}).map(function(person) {
+    return (person.born - byName[person.mother].born);
+})));
 
 // → 31.2
