@@ -1,6 +1,6 @@
 // Fill in the regular expressions
 
-verify(/ca(r|t)/,
+verify(/ca[rt]/,
        ["my car", "bad cats"],
        ["camper", "high art"]);
 
@@ -16,15 +16,15 @@ verify(/ious\b/,
        ["how delicious", "spacious room"],
        ["ruinous", "consciousness"]);
 
-verify(/\s(\.|,|:|;)/,
+verify(/\s[.,:;]/,
        ["bad punctuation ."],
        ["escape the dot"]);
 
-verify(/\b\w{7,}\b/,
+verify(/\w{7,}/,
        ["hottentottententen"],
        ["no", "hotten totten tenten"]);
 
-verify(/\b[^e\s]+\b/,
+verify(/\b[^e\W]+\b/,
        ["red platypus", "wobbling nest"],
        ["earth bed", "learning ape"]);
 
